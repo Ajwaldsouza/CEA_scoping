@@ -297,26 +297,46 @@ author_summary("ORSINI F")
 #_____________________________________________________________________________
 
 # CROP COUNT
-crop_count <- read_excel("Data/crop_data/crop_count.xlsx")%>%
+crop_data <- read_excel("Data/crop/crop_data_extraction.xlsx", sheet = "savedrecs")%>%
+  dplyr::select(c(1, 10, 11))%>%
   dplyr::mutate(
     crop = as.factor(crop),
-    category = as.factor(category),
-    super_cat = as.factor(super_cat)
+    crop_category = as.factor(crop_category),
+    study_id = as.factor(study_id)
   )
+
+
+crop_data <- separate_rows(crop_data, crop, sep = ",")# Separating comma separated multiple crops per study into individual column
+
+
+
+# Create a dataset with crop counts
+crop_count <- count(crop_data$crop)%>%
+  as_tibble()%>%
+  dplyr::mutate(
+  freq = as.numeric(freq),
+  x = as.factor(x))%>%
+  dplyr::rename(crop = x,
+         studies = freq)%>%
+  arrange(-studies)
+
+head(crop_count)
+
+
 
 # Top 10 crops studied
 fig_crop_studies <- 
   crop_count %>%
-  dplyr::slice(c(1:10)) %>%
+  slice(c(1:10))%>%
   ggplot(aes(x = reorder(crop, studies), y = studies)) +
-  geom_bar(stat = "summary",
+  geom_bar(stat = "identity",
            color = NA,
            fill = "#A6D1C6") +
   coord_flip()+
   geom_text(aes(label = studies), size = 3.75, hjust = -0.45)+
   scale_y_continuous(
     breaks = seq(0,125, by = 25),
-    limits = c(0, 130),
+    limits = c(0, 135),
     expand = c(0, 0)) +
   theme_pubr()+
   theme(
@@ -336,21 +356,37 @@ fig_crop_studies
 
 
 
+
+
+
+
+
+
+# Create a dataset with category counts
+crop_cat <- count(crop_data$crop_category)%>%
+  as_tibble()%>%
+  dplyr::mutate(
+    freq = as.numeric(freq),
+    x = as.factor(x))%>%
+  dplyr::rename(cat = x,
+                studies = freq)%>%
+  arrange(-studies)
+
+head(crop_cat)
+
+
 # Top 10 crop categories studied
 crop_cat_studies <- 
-  summarySE(data = crop_count,
-          measurevar = "studies",
-          groupvars = "category") %>%
-  mutate(studies = N * studies) %>%
-  select(c(1, 3)) %>%
-  ggplot(aes(x = reorder(category, studies), y = studies)) +
+  crop_cat %>%
+  slice(c(1:10))%>%
+  ggplot(aes(x = reorder(cat, studies), y = studies)) +
   geom_bar(stat = "summary",
            color = NA,
            fill = "#A6D1C6") +
   coord_flip() +
   geom_text(aes(label = studies), size = 3.75, hjust = -0.4)+
   scale_y_continuous(breaks = seq(0, 175, by = 25),
-                     limits = c(0, 190),
+                     limits = c(0, 200),
                      expand = c(0, 0)) +
   theme_pubr() +
   theme(
@@ -370,17 +406,32 @@ crop_cat_studies
 
 
 # Top 10 crop categories with most crops
+
+crop_cat_species <- crop_data%>%
+  filter(duplicated(crop) == FALSE)%>%
+  dplyr::count(crop_category)%>%
+  as_tibble()%>%
+  dplyr::mutate(
+    n = as.numeric(n),
+    crop_category = as.factor(crop_category))%>%
+  dplyr::rename(
+                species = n)%>%
+  arrange(-species)
+  
+
+
+
+
+
+
 crop_cat_crop <- 
-  summarySE(data = crop_count,
-          measurevar = "studies",
-          groupvars = "category") %>%
-  select(c(1, 2)) %>%
-  ggplot(aes(x = reorder(category, N), y = N)) +
+  crop_cat_species%>%
+  ggplot(aes(x = reorder(crop_category, species), y = species)) +
   geom_bar(stat = "summary",
            color = NA,
            fill = "#A6D1C6") +
   coord_flip() +
-  geom_text(aes(label = N), size = 3.75, hjust = -0.4)+
+  geom_text(aes(label = species), size = 3.75, hjust = -0.4)+
   scale_y_continuous(breaks = seq(0, 25, by = 5),
                      limits = c(0, 26),
                      expand = c(0, 0)) +
@@ -401,68 +452,12 @@ crop_cat_crop
 
 
 
-library("ggrepel")
-
-
-# Crop distributions
-crop_dist_supercat <-   
-  summarySE(data = crop_count,
-          measurevar = "studies",
-          groupvars = "super_cat") %>%
-  mutate(studies = N * studies)%>%
-  select(c(1,3))%>%
-  mutate(prop = studies/sum(studies))%>%
-  mutate(perc = paste0(round(prop*100,2),"%"))%>%
-  mutate(xvar = "xvar")%>%
-  ggplot( aes(x = xvar, y = prop, fill = super_cat)) +
-  geom_col(width =0.5) +
-  # geom_text(aes(label = paste0(perc)),
-  #           position = position_stack(vjust = 0.5)) +
-  # geom_text_repel(aes(label = paste0(perc)), position = position_stack(vjust = 0.5),vjust = 5, hjust = 5)+
-  scale_fill_brewer(palette = "Set2") +
-  theme_void() +
-  coord_flip()
-
-crop_dist_supercat
-  
-
-
-
-crop_dist_food <- 
-  crop_count%>%
-  filter(str_detect(super_cat, "Food"))%>%
-  summarySE(
-          measurevar = "studies",
-          groupvars = "category") %>%
-  mutate(studies = N * studies)%>%
-  select(c(1,3))%>%
-  mutate(prop = studies/sum(studies))%>%
-  mutate(perc = paste0(round(prop*100,2),"%"))%>%
-  mutate(xvar = "xvar")%>%
-  ggplot( aes(x = xvar, y = prop, fill = category)) +
-  geom_col(width =0.5) +
-  # geom_text(aes(label = paste0(perc)),
-  #           position = position_stack(vjust = 0.5)) +
-  geom_text_repel(aes(label = paste0(perc)),  position = position_stack(vjust = 0.5), direction = "y")+
-  scale_fill_brewer(palette = "Set3") +
-  theme_void() +
-  coord_flip()
-
-crop_dist_food  
-  
 
 
 
 
 
 
-
-# theme_map <- thematicMap(data_bib, field = "DE", n = 250, minfreq =8,
-#             stemming = F, size = 0.1, n.labels=3, repel = T, community.repulsion = 0.1,
-#             remove.terms = c("controlled environment agriculture (cea)", "rosmarinic acid"))
-# 
-# theme_map_fig <- theme_map$map
-# theme_map_fig 
 
 
 
@@ -499,106 +494,15 @@ ggsave("Plots/trend.pdf", trend_plot,  width=8.2, height=5.5)
 
 
 # CROPS
-crop_col1 <- ggarrange(crop_dist_supercat,
-                       crop_dist_food,
-                       nrow = 2, ncol = 1,
-                       labels = c("d", "e"),
+crop_col <- ggarrange(fig_crop_studies, crop_cat_studies, crop_cat_crop,
+                       nrow = 1, ncol = 3,
+                       labels = "auto",
                        align = "hv")
 
+crop_col
 
-crop_col2 <- ggarrange(fig_crop_studies, crop_cat_studies, #crop_cat_crop, crop_col1,
-                      nrow = 1, ncol = 2,
-                      labels = c("a", "b"),
-                      align = "hv")
-
-crop_col2
-
-# ggsave("Plots/crop2.pdf", crop_col2,  width=10, height=7)
+ggsave("Plots/crops.pdf", crop_col,  width=17, height=4)
 
 
 
 
-crop_col3 <- ggarrange(crop_cat_crop, crop_col1,
-                       nrow = 1, ncol = 2,
-                       labels = c("c", " "),
-                       align = "h")
-
-
-
-fig_crop <- 
-  ggarrange(crop_col2, crop_col3,
-          nrow = 2, ncol = 1,
-          labels = NULL,
-          align = "hv")
-fig_crop
-
-ggsave("Plots/crop3.pdf", fig_crop,  width=14.75, height=10)
-
-
-
-
-
-
-# # #Research Area
-# ra <- read_xls("Data/full_rec.xls", sheet= "savedrecs")%>%
-#   select(c(9,64))%>%
-#   # as.data.frame()%>%
-#   dplyr::rename("title" = 1,
-#                 "areas" = 2)#%>%
-#   separate(col = "areas", sep = ";", into = c("a", "b", "c","d","e"))
-# 
-# 
-#   
-#   
-#   
-#   
-#   
-# 
-# ggvenn(
-#   x,
-#   columns = c("a", "b"),
-#   # fill_color = c("#0073C2FF", "#EFC000FF"),
-#   stroke_size = 0.5, set_name_size = 5
-# )
-# 
-# 
-# 
-# x <- list(
-#  a = Life_sciences,
-#  b = Phy_sciences
-# )
-# 
-# 
-# str(x)
-# 
-# 
-# 
-# 
-# Life_sciences <-
-#   ra %>%
-#   filter(grepl(c("Agriculture", "Anthropology",
-#                  "Biochemistry & Molecular Biology",
-#                  "Biotechnology & Applied Microbiology",
-#                  "Life Sciences & Biomedicine",
-#                  "Environmental Sciences & Ecology",
-#                  "Food Science & Technology",
-#                  "Mathematics",
-#                  "Microbiology", 
-#                  "Plant Sciences",
-#                  "Zoology"), areas)) %>%
-#   select(1)%>%as.character()
-# 
-# 
-# Phy_sciences <-
-#   ra %>%
-#   filter(grepl(c("Chemistry",
-#                  "Mathematics",
-#                  "Physics", 
-#                  "Water Resources",
-#                  "Astronomy & Astrophysics"), areas)) %>%
-#   select(1)%>%as.character()
-# 
-# 
-# 
-# 
-# 
