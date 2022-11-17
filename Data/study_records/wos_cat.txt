@@ -1,0 +1,82 @@
+Web of Science Categories	Record Count	% of 630
+Plant Sciences	147	23.333
+Horticulture	144	22.857
+Agronomy	66	10.476
+Environmental Sciences	64	10.159
+Agriculture Multidisciplinary	51	8.095
+Food Science Technology	49	7.778
+Green Sustainable Science Technology	44	6.984
+Environmental Studies	32	5.079
+Agricultural Engineering	28	4.444
+Energy Fuels	24	3.810
+Engineering Electrical Electronic	21	3.333
+Chemistry Multidisciplinary	19	3.016
+Physics Applied	19	3.016
+Engineering Environmental	17	2.698
+Computer Science Interdisciplinary Applications	16	2.540
+Multidisciplinary Sciences	16	2.540
+Materials Science Multidisciplinary	15	2.381
+Chemistry Applied	13	2.063
+Biotechnology Applied Microbiology	11	1.746
+Engineering Multidisciplinary	11	1.746
+Biochemistry Molecular Biology	9	1.429
+Computer Science Information Systems	9	1.429
+Instruments Instrumentation	9	1.429
+Chemistry Analytical	7	1.111
+Construction Building Technology	7	1.111
+Management	7	1.111
+Meteorology Atmospheric Sciences	7	1.111
+Biology	6	0.952
+Engineering Chemical	6	0.952
+Optics	6	0.952
+Thermodynamics	6	0.952
+Engineering Civil	5	0.794
+Mechanics	5	0.794
+Nutrition Dietetics	5	0.794
+Telecommunications	5	0.794
+Forestry	4	0.635
+Urban Studies	4	0.635
+Agricultural Economics Policy	3	0.476
+Computer Science Artificial Intelligence	3	0.476
+Engineering Industrial	3	0.476
+Engineering Mechanical	3	0.476
+Materials Science Textiles	3	0.476
+Metallurgy Metallurgical Engineering	3	0.476
+Automation Control Systems	2	0.317
+Chemistry Medicinal	2	0.317
+Computer Science Software Engineering	2	0.317
+Development Studies	2	0.317
+Engineering Aerospace	2	0.317
+Engineering Manufacturing	2	0.317
+History Philosophy Of Science	2	0.317
+Operations Research Management Science	2	0.317
+Regional Urban Planning	2	0.317
+Acoustics	1	0.159
+Anthropology	1	0.159
+Architecture	1	0.159
+Astronomy Astrophysics	1	0.159
+Chemistry Physical	1	0.159
+Communication	1	0.159
+Computer Science Theory Methods	1	0.159
+Economics	1	0.159
+Engineering Biomedical	1	0.159
+Genetics Heredity	1	0.159
+Geosciences Multidisciplinary	1	0.159
+Imaging Science Photographic Technology	1	0.159
+Materials Science Paper Wood	1	0.159
+Mathematics Interdisciplinary Applications	1	0.159
+Medicine Research Experimental	1	0.159
+Nanoscience Nanotechnology	1	0.159
+Pharmacology Pharmacy	1	0.159
+Physics Condensed Matter	1	0.159
+Physics Fluids Plasmas	1	0.159
+Psychology Clinical	1	0.159
+Psychology Multidisciplinary	1	0.159
+Public Environmental Occupational Health	1	0.159
+Rehabilitation	1	0.159
+Remote Sensing	1	0.159
+Social Sciences Interdisciplinary	1	0.159
+Social Work	1	0.159
+Sociology	1	0.159
+Water Resources	1	0.159
+Zoology	1	0.159

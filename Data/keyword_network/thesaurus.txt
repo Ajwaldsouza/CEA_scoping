@@ -1,0 +1,47 @@
+label	replace by
+vertical farm	vertical farming
+l.	lactuca sativa l.
+system	systems
+led	light emitting diodes
+light emitting-diodes	light emitting diodes
+light-emitting-diodes	light emitting diodes
+led light	light emitting diodes
+light-emitting diodes	light emitting diodes
+emitting-diodes	light emitting diodes
+light	light emitting diodes
+lactuca-sativa l.	lactuca sativa l.
+lactuca sativa	lactuca sativa l.
+growth	plant growth
+plant-growth	plant growth
+plant factories	plant factory
+blue	blue light
+blue-light	blue light
+controlled environment	controlled environment agriculture
+emitting-diodes leds	light emitting diodes
+green-light	green light
+red-light	red light
+red	red light
+green	green light
+lettuce	lactuca sativa l.
+leaf lettuce	lactuca sativa l.
+leds	light emitting diodes
+vertical farms	vertical farming
+light-emitting diode	light emitting diodes
+controlled environment agriculture (cea)	controlled environment agriculture
+cea	controlled environment agriculture
+urban farming	urban agriculture
+iot	internet of things
+sweet basil	basil
+greenhouse	greenhouses
+arabidopsis-thaliana	arabidopsis
+artificial-light	artificial lighting
+irradiation	irradiance
+light-intensity	light intensity
+plant	plants
+antioxidant capacity	antioxidants
+antioxidant intensity	antioxidants
+antioxidant	antioxidants
+food	food-production
+leaf	leaves
+antioxidant activity	antioxidants
+anthocyanin	anthocyanins
