@@ -45,3 +45,16 @@ food	food-production
 leaf	leaves
 antioxidant activity	antioxidants
 anthocyanin	anthocyanins
+carbon dioxide	co2
+carbon-dioxide	co2
+artificial light	artificial lighting
+climate-change	climate change
+energy efficiency	energy use efficiency
+far-red light	far-red
+gene-expression	gene expression
+hydroponic lettuce	lactuca sativa l.
+indoor cultivation	indoor farming
+lactuca-sativa	lactuca sativa l.
+intensity	light intensity
+nitrate	nitrate content
+ocimum-basilicum	basil

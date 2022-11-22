@@ -1,0 +1,40 @@
+label	occurrences	focus
+design	12	Technical
+internet of things	13	Technical
+model	13	Technical
+transpiration	16	Technical
+performance	22	Technical
+greenhouses	36	Technical
+hydroponics	39	Technical
+temperature	44	Technical
+water	44	Technical
+systems	64	Technical
+city	7	Socio-economic
+local food	7	Socio-economic
+future	9	Socio-economic
+food security	16	Socio-economic
+food-production	26	Socio-economic
+urban agriculture	48	Socio-economic
+land	8	Environmental
+efficiency	10	Environmental
+life-cycle assessment	10	Environmental
+climate change	14	Environmental
+environment	14	Environmental
+use efficiency	14	Environmental
+energy	23	Environmental
+sustainability	26	Environmental
+accumulation	36	Biological
+light intensity	38	Biological
+green light	45	Biological
+yield	46	Biological
+antioxidants	52	Biological
+responses	58	Biological
+plants	59	Biological
+leaves	60	Biological
+quality	106	Biological
+red light	109	Biological
+blue light	120	Biological
+photosynthesis	137	Biological
+lactuca sativa l.	151	Biological
+plant growth	166	Biological
+light emitting diodes	168	Biological

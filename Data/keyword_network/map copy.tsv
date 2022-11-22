@@ -1,0 +1,110 @@
+id	label	cluster	weight<Occurrences>	focus
+600	cultivation	1	7	Technical
+1261	impact	1	7	Technical
+1321	innovation	1	7	Technical
+168	artificial intelligence	1	8	Technical
+2511	simulation	1	8	Technical
+2937	ventilation	1	8	Technical
+1594	management	1	10	Technical
+1823	nutrient solution	1	11	Technical
+1861	optimization	1	11	Technical
+668	design	1	12	Technical
+1347	internet of things	1	13	Technical
+1680	model	1	13	Technical
+2827	transpiration	1	16	Technical
+1915	performance	1	22	Technical
+1103	greenhouses	1	36	Technical
+1232	hydroponics	1	39	Technical
+2737	temperature	1	44	Technical
+2979	water	1	44	Technical
+2719	systems	1	64	Technical
+427	city	1	7	Socio-economic
+1560	local food	1	7	Socio-economic
+1014	future	1	9	Socio-economic
+958	food security	1	16	Socio-economic
+969	food-production	1	26	Socio-economic
+2869	urban agriculture	1	48	Socio-economic
+1404	land	1	8	Environmental
+758	efficiency	1	10	Environmental
+1490	life-cycle assessment	1	10	Environmental
+431	climate change	1	14	Environmental
+825	environment	1	14	Environmental
+2893	use efficiency	1	14	Environmental
+794	energy	1	23	Environmental
+2695	sustainability	1	26	Environmental
+342	capacity	2	7	Biological
+2015	photosynthetic rate	2	7	Biological
+2113	plant-production	3	7	Biological
+1269	in-vitro	4	7	Biological
+2934	vegetative propagation	4	7	Biological
+29	acclimation	5	7	Biological
+324	calcium	5	7	Biological
+736	dynamics	5	7	Biological
+919	field	5	7	Biological
+3008	wheat	5	7	Biological
+1475	lettuce growth	1	8	Biological
+3009	white	2	8	Biological
+1434	leaf photosynthesis	3	8	Biological
+2655	strawberry	4	8	Biological
+471	combinations	5	8	Biological
+1527	light spectrum	3	9	Biological
+2488	shade avoidance	3	9	Biological
+2649	stomatal conductance	3	9	Biological
+621	daily light integral	4	9	Biological
+1531	light use efficiency	5	9	Biological
+2487	shade	1	10	Biological
+1782	nitrogen	2	10	Biological
+1832	nutritional quality	2	10	Biological
+2616	spinach	2	10	Biological
+2045	phytochrome	3	10	Biological
+1637	metabolism	2	11	Biological
+1515	light interception	5	11	Biological
+242	bioactive compounds	2	12	Biological
+2044	phytochemicals	2	12	Biological
+2253	quantum yield	3	12	Biological
+807	energy use efficiency	4	12	Biological
+265	biosynthesis	2	13	Biological
+254	biomass	2	14	Biological
+449	co2	5	14	Biological
+599	cultivars	5	14	Biological
+1020	gas-exchange	5	14	Biological
+398	chlorophyll	2	15	Biological
+2461	seedlings	3	15	Biological
+2685	supplemental blue	3	15	Biological
+1024	gene expression	2	16	Biological
+1945	phenolic-compounds	2	16	Biological
+878	expression	4	16	Biological
+2450	secondary metabolites	2	17	Biological
+2926	vegetables	2	17	Biological
+895	far-red	3	17	Biological
+1703	morphology	4	17	Biological
+1776	nitrate content	5	19	Biological
+126	anthocyanins	2	20	Biological
+2196	productivity	1	21	Biological
+1977	photomorphogenesis	3	21	Biological
+2786	tomato	4	21	Biological
+2261	radiation	2	23	Biological
+219	basil	4	23	Biological
+152	arabidopsis	3	25	Biological
+1288	indoor farming	5	25	Biological
+2659	stress	2	26	Biological
+1985	photoperiod	4	26	Biological
+401	chlorophyll fluorescence	2	28	Biological
+1521	light quality	3	29	Biological
+1366	irradiance	4	31	Biological
+170	artificial lighting	2	34	Biological
+30	accumulation	2	36	Biological
+1514	light intensity	4	38	Biological
+1082	green light	3	45	Biological
+3040	yield	4	46	Biological
+139	antioxidants	2	52	Biological
+2352	responses	3	58	Biological
+2118	plants	2	59	Biological
+1445	leaves	5	60	Biological
+2245	quality	4	106	Biological
+2299	red light	3	109	Biological
+274	blue light	3	120	Biological
+1994	photosynthesis	3	137	Biological
+1398	lactuca sativa l.	2	151	Biological
+2086	plant growth	4	166	Biological
+1504	light emitting diodes	2	168	Biological
