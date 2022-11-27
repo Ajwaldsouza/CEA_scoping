@@ -274,7 +274,6 @@ top_key <- read_delim("Data/keyword_network/top_keywords.txt",
 head(top_key)
 
 
-#377eb8","#4daf4a","#984ea3","#ff7f00"
 
 top_key_bio <- top_key%>%
   slice(c(25:39))%>%
@@ -384,7 +383,6 @@ figure_top_key
 
 
 
-#VENN-EULER
 ggsave("Plots/top_keywords.pdf", figure_top_key,  width=9.6, height=6)
 
 
@@ -461,8 +459,8 @@ study_focus <- read_excel("Data/study_records/data_ext.xlsx", sheet = "savedrecs
 
 #Melting dataset to contain all focus levels in one column
 study <-  study_focus%>%
-  select(c(-2))%>%
-  reshape2::melt( id.vars = c(1))%>%select(c(-2,6))%>%na.omit()
+  select(-c(2,6))%>%
+  reshape2::melt( id.vars = c(1))%>%na.omit()
 
 
 
@@ -519,10 +517,11 @@ venn.diagram(
 
 
 # Input in the form of a named numeric vector
-matrix <- euler(c("Biological" = 301, "Socio-economic" = 40, "Technical" = 136, "Environmental" = 27,
-                "Biological&Socio-economic" = 4, "Biological&Technical" = 44, "Socio-economic&Technical" = 10, "Biological&Environmental" = 7, "Socio-economic&Environmental" = 21, "Technical&Environmental" = 19,
-                "Biological&Socio-economic&Technical" = 1, "Socio-economic&Technical&Environmental" = 9, "Biological&Socio-economic&Environmental" = 1, "Biological&Technical&Environmental" = 0,
-                "Biological&Socio-economic&Technical&Environmental" = 0))
+matrix <- euler(c("Biological" = 315, "Socio-economic" = 39, "Technical" = 141, "Environmental" = 30,
+                "Biological&Socio-economic" = 3, "Biological&Technical" = 22, "Socio-economic&Technical" = 7, "Biological&Environmental" = 7, "Socio-economic&Environmental" = 17, "Technical&Environmental" = 18,
+                "Biological&Socio-economic&Technical" = 1, "Socio-economic&Technical&Environmental" = 7, "Biological&Socio-economic&Environmental" = 1 #"Biological&Technical&Environmental" = 0,
+                #"Biological&Socio-economic&Technical&Environmental" = 0
+                ))
 
 eulerr_options(labels = list(col = c("#377eb8","#4daf4a","#984ea3","#ff7f00"))) #setting the global options for euler plot function-here, label font colours
 
@@ -535,6 +534,10 @@ venn_euler <-
      )
 
 
+venn_euler
+
+
+
 
 
 #VENN-EULER
@@ -544,7 +547,7 @@ ggsave("Plots/venn.pdf", venn_euler,  width=6, height=5)
 
 
 
-#COMPARE BIOLOGICAL VS OTHER
+#COMPARE PhotoBIOLOGICAL VS OTHER
 
 photobio_focus <- study_focus%>%
   select(c(1,6))%>%
@@ -554,6 +557,7 @@ photobio_focus <- study_focus%>%
   coord_flip()+
   theme_pubr()+
   labs(x = "", y = "No. of studies")+
+  scale_x_discrete(labels = c("Non-photobiological", "Photobiological" ))+
   theme(
     axis.line.y = element_blank(),
     panel.grid.major.x = element_line(color = "#DAE1E7", size = 0.25),
@@ -596,7 +600,7 @@ focus_trend <-
   ggplot(data = focus_year, aes(x = year, y = category, fill = count))+
   geom_raster()+  
   scale_fill_gradient(low="white", high="royalblue4")+
-  scale_y_discrete(labels= c("Tecnological", "Socio-economical", "Environmental", "Biological"))+
+  scale_y_discrete(labels= c("Technological", "Socio-economical", "Environmental", "Biological"))+
   labs(x= "Year", y = "Research focus", fill = "No. of Studies")+
   theme_bw()+
   theme(axis.text=element_text(size=12))
