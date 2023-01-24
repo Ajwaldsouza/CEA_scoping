@@ -11,13 +11,14 @@ The results from this analysis is being compiled into a manuscript. The aim of t
 
 The paper discussing the findings of the scoping review has been published as:
 
-| Ajwal Dsouza. (2023). Exploring the Landscape of Controlled Environment Agriculture Research: A Systematic Scoping Review of Current Trends and Topics (1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.7565699
+| 
 
 
 
 ## Citable version of code and data
 
 Cite as:
+> Ajwal Dsouza. (2023). Exploring the Landscape of Controlled Environment Agriculture Research: A Systematic Scoping Review of Current Trends and Topics >>(1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.7565699
 
 ------------------------------------------------------------------------
 
