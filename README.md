@@ -1,10 +1,7 @@
----
-bibliography: references.bib
----
 
 # Scoping review of controlled enviornment agriculture research
 
-DOI:
+Database DOI:[![DOI](https://zenodo.org/badge/567229145.svg)](https://zenodo.org/badge/latestdoi/567229145)
 
 ------------------------------------------------------------------------
 
