@@ -396,7 +396,7 @@ top_key_env
 figure_top_key <- ggarrange(top_key_bio, top_key_tech, top_key_env, top_key_soceco,
                             labels = "auto",
                             align = "hv")%>%
-   annotate_figure(left = textGrob("Keywords", rot = 90, vjust = 1), 
+   annotate_figure(left = textGrob("Keywords", rot = 90, vjust = 0), 
                   bottom = textGrob("Occurrences"))
 
 
@@ -587,6 +587,10 @@ photobio_focus <- study_focus%>%
 
 photobio_focus
 
+#Get numeric value for each treatment level
+dplyr::count(study_focus, photo)
+
+
 
 # collage venn diagram and 'photobiology vs other' bar plot 
 venn_bar <- ggarrange(venn_euler, photobio_focus, labels = "auto" )
@@ -715,8 +719,8 @@ crop_cat_studies <-
            fill = "#A6D1C6") +
   coord_flip() +
   geom_text(aes(label = studies), size = 3.75, hjust = -0.2)+
-  scale_y_continuous(breaks = seq(0, 175, by = 25),
-                     limits = c(0, 200),
+  scale_y_continuous(breaks = seq(0, 200, by = 50),
+                     limits = c(0, 215),
                      expand = c(0, 0)) +
   theme_pubr() +
   theme(
@@ -783,13 +787,14 @@ crop_cat_crop
 
 # collage
 crop_col <- ggarrange(fig_crop_studies, crop_cat_studies, crop_cat_crop,
-                       nrow = 1, ncol = 3,
+                       nrow = 3, ncol = 1,
                        labels = "auto",
                        align = "hv")
 
 crop_col
 
-ggsave("Plots/crops.pdf", crop_col,  width=15, height=4)
+
+ggsave("Plots/crops.pdf", crop_col,  width=5.2, height=8.2)
 
 
 
